@@ -71,7 +71,7 @@ function prevCard() {
     </div>
 
     <!-- Cards -->
-    <div class="cards relative flex items-center justify-center mt-12">
+    <div class="cards relative flex items-center justify-center mt-12 overflow-hidden">
       <div
         v-for="(card, i) in visibleCards"
         :key="i"
@@ -85,7 +85,7 @@ function prevCard() {
             <img :src="card.img" class="absolute bottom-4 h-full left-4 w-full" />
           </div>
           <div>
-            <p class="text-sm text-[#484848]">{{ card.text }}</p>
+            <p class="text-sm text-[#484848] max-w-60 line-clamp-3">{{ card.text }}</p>
             <div class="w-44 h-px bg-[#484848] my-3"></div>
             <div class="text-2xl font-[Volkhov] text-[#484848]">{{ card.name }}</div>
             <div class="text-sm font-[Poppins] text-[#484848]">{{ card.role }}</div>
