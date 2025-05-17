@@ -1,0 +1,18 @@
+<template>
+    <div class="flex gap-6 ">
+        <NuxtLink to="/newpassword">new password</NuxtLink>
+        <NuxtLink to="/confirmationwindow">confirmationwindow</NuxtLink>
+        <NuxtLink to="/newpassword">newpassword</NuxtLink>
+        <NuxtLink to="/signin">Sign In </NuxtLink>
+        <NuxtLink to="/signup">signup</NuxtLink>
+        <NuxtLink to="/fake">fake</NuxtLink>
+        <NuxtLink to="/slider">slider</NuxtLink>
+        <NuxtLink to="/sliderCard">sliderCard</NuxtLink>
+    </div>
+</template>
+
+<script setup>
+
+
+
+</script>
