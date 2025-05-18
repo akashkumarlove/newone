@@ -8,6 +8,8 @@
         <NuxtLink to="/fake">fake</NuxtLink>
         <NuxtLink to="/slider">slider</NuxtLink>
         <NuxtLink to="/sliderCard">sliderCard</NuxtLink>
+        <NuxtLink to="/swaper">swaper</NuxtLink>
+        <NuxtLink to="/home">home</NuxtLink>
     </div>
 </template>
 

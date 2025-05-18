@@ -15,6 +15,7 @@
 
     const {data , pending , error} = await useLazyFetch("https://dummyjson.com/posts?limit=10")
     console.log("data hai" , data)
+    
 
 </script>
 

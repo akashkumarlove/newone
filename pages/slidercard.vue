@@ -43,7 +43,7 @@ const cards = [
   }
 ]
 
-const currentIndex = ref(0)
+const currentIndex = ref(1)
 
 const visibleCards = computed(() => {
   const prev = (currentIndex.value - 1 + cards.length) % cards.length
@@ -74,7 +74,6 @@ function prevCard() {
     <div class="cards relative flex items-center justify-center mt-12 overflow-hidden">
       <div
         v-for="(card, i) in visibleCards"
-        :key="i"
         :class="[
           'flex-shrink-0 relative  pt-17 pb-11 h-auto flex p-9 pr-13 bg-white rounded-lg shadow-md',
           i === 1 ? 'scale-100' : 'scale-70 opacity-60'
