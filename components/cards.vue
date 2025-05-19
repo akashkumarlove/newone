@@ -12,7 +12,7 @@
             class="sub-heading text-[#8A8A8A] mt-5 flex justify-center text-sm font-[poopins leading-[20px] tracking-[0%] text-center]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque duis <br /> ultrices
             sollicitudin aliquam sem. Scelerisque duis ultrices sollicitudin </div>
-        <div class="buttons flex gap-4 justify-between mt-10">
+        <div class="buttons flex sm:gap-4 gap-2 flex-wrap justify-between mt-10">
             <button
                 class="px-8 p-3 rounded-lg cursor-pointer bg-[#fafafa] text-[#8A8A8A] font-poppins text-sm leading-[100%]">Men’s
                 Fashion</button>

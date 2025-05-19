@@ -13,7 +13,7 @@
                     </div>
 
                     <div
-                        class=" hidden right-part text-sm md:flex space-x-10 font-normal md:text-base leading-[100%] tracking-[0%] font-[Poppins]">
+                        class="hidden right-part text-sm md:flex space-x-10 font-normal md:text-base leading-[100%] tracking-[0%] font-[Poppins]">
                         <button class="cursor-pointer">Home</button>
                         <button class="cursor-pointer">Deals</button>
                         <button class="cursor-pointer">New Arrivals</button>
@@ -52,7 +52,7 @@
                             class="px-8 p-2.5 mt-5 shadow-lg cursor-pointer rounded-lg bg-[#000000] text-white mx-auto block md:left-[855px]">
                             SHOP NOW
                         </button>
-                        <img src="../assets/home/section-1/centar-bottom.png" class="absolute bottom-0" />
+                        <img src="../assets/home/section-1/centar-bottom.png" class="absolute bottom-0 hidden sm:flex" />
                     </div>
 
                     <!-- Right Section -->
@@ -303,7 +303,7 @@
                     </div>
 
                     <div class="right w-1/2 bg-[#DADADA] clip-right">
-                        <div class="box w-full lg:w-[534px] text-start pl-22 pt-13">
+                        <div class="box w-full lg:w-[534px] text-start pl-4 sm:pl-22 pt-13">
                             <div
                                 class="small-heading font-[Poppins] text-sm leading-[100%] tracking-[0%] text-[#767676]">
                                 Women Collection</div>
@@ -343,8 +343,8 @@
                 </div>
 
 
-                <div class="footer lg:px-59 mt-14 px-4 mb-14">
-                    <div class="features flex flex-wrap gap-13 justify-between">
+                <div class="footer lg:px-59 mt-14 px-4 mb-14 flex justify-center items-center">
+                    <div class="features flex flex-wrap gap-13">
 
                         <div class="features-1">
                             <div class="icon-text flex text-start">
@@ -478,12 +478,12 @@
                 <div class="seprator border border-[#DEDFE1] mb-7"></div>
                 <div class="content flex lg:mx-60 md:mx-3 justify-between">
                     <div class="left">
-                        <div class="heading font-[Volkhov] text-2xl leading-[100%] tracking-[0%] text-[#484848]">FASCO
+                        <div class="heading hidden sm:flex font-[Volkhov] text-2xl leading-[100%] tracking-[0%] text-[#484848]">FASCO
                         </div>
                     </div>
 
                     <div
-                        class="right flex gap-7 font-[Poppins] font-normal text-sm leading-[100%] tracking-[0%] text-[#484848]">
+                        class="right flex ml-2 sm:ml-0 gap-5 sm:gap-7 font-[Poppins] font-normal text-sm leading-[100%] tracking-[0%] text-[#484848]">
                         <div class="item-1">Support Center</div>
                         <div class="item-2">Invoicing</div>
                         <div class="item-3">Contract</div>

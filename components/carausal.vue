@@ -14,12 +14,12 @@
 
 
 
-                <div v-for="(card, i) in visibleCard" :class="['card-1 flex-shrink-0 relative z-10 w-166 pt-17 pb-11 h-auto flex gap-15 p-9 pr-13  bg-white shadow-[0px_14.95px_44.86px_0px_rgba(46,33,61,0.08)] rounded-lg',
+                <div v-for="(card, i) in visibleCard" :class="['card-1 flex-shrink-0 relative z-10 w-130 sm:w-166 pt-17 pb-11 h-auto flex gap-5 sm:gap-15 p-9 pr-13  bg-white shadow-[0px_14.95px_44.86px_0px_rgba(46,33,61,0.08)] rounded-lg',
                     i === 1 ? 'scale-100' : 'scale-70 opacity-40'
                 ]">
                     <div class="left background bg-[#D9D9D9]">
-                        <div class="box relative w-50 h-46 bg-[#D9D9D9] ">
-                            <img src="../assets/home/section-6/image-2.png " class=" w-46 absolute right-0 bottom-4 " />
+                        <div class="box relative w-34 sm:w-50 ml-9 sm:ml-0 h-46 flex justify-center items-center :bg-[#D9D9D9] ">
+                            <img src="../assets/home/section-6/image-2.png " class=" sm:w-46 absolute sm:right-0 sm:bottom-4 " />
                         </div>
                     </div>
 
