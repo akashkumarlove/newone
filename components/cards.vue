@@ -1,6 +1,10 @@
 <template>
 
     <div class="section-3 mt-28 md:px-10 px-2 lg:px-59">
+        <div v-if="pending" class="text-gray-500 text-5xl flex items-center justify-center">Loading testimonials...</div>
+            <div v-else-if="error" class="text-red-500 text-3xl flex items-center justify-center">Failed to load testimonials. Please try again.</div>
+         <div v-else>
+
         <div
             class="heading font-[Volkhov] font-normal text-4xl leading-[100%] tracking-[0%] text-center text-[#484848]">
             New Arrivals</div>
@@ -61,7 +65,7 @@
                 More</button>
         </div>
 
-
+        </div>
 
     </div>
 
@@ -75,8 +79,12 @@ import { Icon } from '@iconify/vue'
 const { data, pending, error } = await useLazyFetch("https://dummyjson.com/carts?limit=2")
 console.log("data hai", data)
 
-const carts = data.value.carts
-const post = carts.flatMap(cart => cart.products)
+import { computed } from 'vue' 
+
+const post = computed(() => {
+    return data.value.carts.flatMap((cart) => cart.products)
+})
+
 
 
 function truncate(des, num) {

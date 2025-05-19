@@ -1,6 +1,10 @@
 <template>
     <div>
         <div class="section-6 bg-[#fafafa] pt-20 pb-13">
+            <div v-if="pending" class="text-gray-500 text-5xl flex items-center justify-center">Loading testimonials...</div>
+            <div v-else-if="error" class="text-red-500 text-3xl flex items-center justify-center">Failed to load testimonials. Please try again.</div>
+            <div v-else>
+
             <div class="headind font-[Volkhov] text-4xl leading-[100%] tracking-[0] text-center text-[#484848]">This
                 Is What Our Customers Say</div>
             <div class="sub-heading font-[Poppins] mt-3 text-sm leading-[26px] tracking-[0] text-center text-[#8A8A8A]">
@@ -51,6 +55,8 @@
 
             </div>
 
+            </div>
+
 
         </div>
     </div>
@@ -61,14 +67,14 @@
 import { ref, computed } from 'vue'
 import { Icon } from '@iconify/vue'
 
-
-const { data: cards, pending, error } = await useLazyFetch("https://dummyjson.com/posts?limit=10")
-console.log("data ", cards)
+const url = ref("https://dummyjson.com/posts?limit=10")
+const { data, pending, error } = await useLazyFetch(url)
+console.log("data ", data)
 
 const currentIndex = ref(0)
 
 const visibleCard = computed(() => {
-    const posts = cards.value.posts
+    const posts = data.value.posts
     const total = posts.length
 
     const prev = (currentIndex.value + 1) % total
@@ -78,13 +84,13 @@ const visibleCard = computed(() => {
 })
 
 function next() {
-    const posts = cards.value.posts
+    const posts = data.value.posts
     const total = posts.length
     currentIndex.value = (currentIndex.value + 1) % total
 }
 
 function prev() {
-    const posts = cards.value.posts
+    const posts = data.value.posts
     const total = posts.length
     currentIndex.value = (currentIndex.value - 1 + total) % total
 }
