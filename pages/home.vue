@@ -6,7 +6,7 @@
             <!-- 1st section start -->
             <div class="section-1 lg:px-59 px-2 flex-row md:justify-center md:items-center md:px-10">
                 <!-- nav--bar -->
-                <div class="nav-bar flex items-center  justify-between">
+                <div class="nav-bar flex items-center justify-between">
                     <div class="left-part">
                         <div class="heading text-3xl md:text-4xl leading-[100%] tracking-[0%] font-['Volkhov']">FASCO
                         </div>
@@ -29,19 +29,21 @@
                 <!-- hero-section -->
                 <div class="hero-section flex space-x-8 mt-15">
                     <!-- Left Section -->
-                    <div class="left w-full md:py-75 md:w-1/3 rounded-lg bg-[#E0E0E0] relative">
-                        <img src="../assets/home/section-1/left.png" class=" absolute bottom-0" />
+                     
+                    <div class="left w-full overflow-hidden md:w-1/3 rounded-lg bg-[#E0E0E0] relative">
+                        <div class="absolute bottom-0 lg:h-[422px]">
+                            <img src="../assets/home/section-1/left.png" class=" " /></div>     
                     </div>
 
                     <!-- Center Section -->
                     <div class="center w-1/3 relative text-center">
                         <img src="../assets/home/section-1/centar-top.png" class="mx-auto" />
                         <div
-                            class="heading-1 font-medium text-3xl md:text-5xl lg:text-7xl leading-[100%] tracking-[-4%] text-[#484848] font-[Poppins] mt-6">
+                            class="heading-1 font-medium text-2xl md:text-5xl lg:text-7xl leading-[100%] tracking-[-4%] text-[#484848] font-[Poppins] mt-6">
                             ULTIMATE
                         </div>
                         <div
-                            class="heading-2 font-medium text-6xl md:text-7xl lg:text-9xl leading-[100%] tracking-[-5.5%] text-[#484848] font-[Poppins]">
+                            class="heading-2 font-medium text-5xl md:text-7xl lg:text-9xl leading-[100%] tracking-[-5.5%] text-[#484848] font-[Poppins]">
                             SALE
                         </div>
                         <div
@@ -52,12 +54,14 @@
                             class="px-8 p-2.5 mt-5 shadow-lg cursor-pointer rounded-lg bg-[#000000] text-white mx-auto block md:left-[855px]">
                             SHOP NOW
                         </button>
-                        <img src="../assets/home/section-1/centar-bottom.png" class="absolute bottom-0 hidden sm:flex" />
+                        <img src="../assets/home/section-1/centar-bottom.png"
+                            class="absolute bottom-0 hidden sm:flex" />
                     </div>
 
                     <!-- Right Section -->
-                    <div class="right md:w-1/3 w-full md:py-75 rounded-lg bg-[#E0E0E0] relative flex justify-center">
-                        <img src="../assets/home/section-1/right.png" class=" sm:w-30 md:w-47 absolute bottom-0" />
+                    <div class="right md:w-1/3 w-full lg:py-75 md:py-60 py-20 rounded-lg bg-[#E0E0E0] relative flex justify-center">
+                        <div class=" absolute bottom-0 w-[62px] sm:h-[310px] sm:w-[150px] lg:w-[185px] lg:h-[422px]">
+                            <img src="../assets/home/section-1/right.png" class="" /></div>
                     </div>
                 </div>
 
@@ -92,7 +96,8 @@
                         amet, consectetur adipiscing elit. Scelerisque duis ultrices sollicitudin aliquam sem.
                         Scelerisque duis ultrices sollicitudin </div>
 
-                    <div class="button w-45 flex items-center justify-center cursor-pointer p-3 mt-8 shadow-lg rounded-lg bg-[#000000] text-white">
+                    <div
+                        class="button w-45 flex items-center justify-center cursor-pointer p-3 mt-8 shadow-lg rounded-lg bg-[#000000] text-white">
                         <button>Buy Now</button>
                     </div>
 
@@ -214,7 +219,7 @@
 
             <!-- 3rd section start -->
 
-            <cards/>
+            <cards />
             <!-- 3rd section ends -->
 
             <!-- 4th section srart -->
@@ -436,7 +441,7 @@
             <!-- 5th section ends -->
             <!-- 6th section start  -->
 
-            <carausal/>
+            <carausal />
 
             <!-- 6th section ends  -->
 
@@ -478,7 +483,9 @@
                 <div class="seprator border border-[#DEDFE1] mb-7"></div>
                 <div class="content flex lg:mx-60 md:mx-3 justify-between">
                     <div class="left">
-                        <div class="heading hidden sm:flex font-[Volkhov] text-2xl leading-[100%] tracking-[0%] text-[#484848]">FASCO
+                        <div
+                            class="heading hidden sm:flex font-[Volkhov] text-2xl leading-[100%] tracking-[0%] text-[#484848]">
+                            FASCO
                         </div>
                     </div>
 

@@ -10,6 +10,8 @@
         <NuxtLink to="/sliderCard">sliderCard</NuxtLink>
         <NuxtLink to="/swaper">swaper</NuxtLink>
         <NuxtLink to="/home">home</NuxtLink>
+        <NuxtLink to="/shopePage">shopePage</NuxtLink>
+        <NuxtLink to="/productpage">productpage</NuxtLink>
     </div>
 </template>
 

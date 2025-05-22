@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="section-6 bg-[#fafafa] pt-20 pb-13">
+        <div class="section-6 bg-[#fafafa] pt-20 pb-13 overflow-hidden">
             <div v-if="pending" class="text-gray-500 text-5xl flex items-center justify-center">Loading testimonials...</div>
             <div v-else-if="error" class="text-red-500 text-3xl flex items-center justify-center">Failed to load testimonials. Please try again.</div>
             <div v-else>
