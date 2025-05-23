@@ -8,14 +8,14 @@
 
                     <div class="fasco font-[Volkhov] text-4xl leading-[100%] tracking-[0%] text-[#484848]">FASCO</div>
                     <div
-                        class="links font-[poppins] flex gap-9 text-sm leading-[100%] tracking-[0%] text-[#484848] p-4 rounded">
+                        class="links font-[poppins] flex gap-6 sm:gap-9 text-sm leading-[100%] tracking-[0%] text-[#484848] p-4 rounded">
                         <NuxtLink>Home</NuxtLink>
                         <NuxtLink>Shop</NuxtLink>
                         <NuxtLink>Products</NuxtLink>
                         <NuxtLink>Pages</NuxtLink>
                     </div>
 
-                    <div class="tools flex justify-center items-center">
+                    <div class="tools hidden sm:flex justify-center items-center">
                         <input type="text" placeholder="@" />
                         <button class="shop">#</button>
                         <NuxtLink class="star">*</NuxtLink>
@@ -88,13 +88,13 @@
                             <div class="text-base texxt-black leading-[28px] font-[volkho] align-middle">Brands</div>
                             <div
                                 class="links mt-3 font-[poppins] font-normal text-sm leading-[13px] align-middle text-[#8A8A8A]">
-                                <div class=" flex gap-3">
+                                <div class=" flex flex-wrap gap-3">
                                     <NuxtLink>Minimog</NuxtLink>
                                     <NuxtLink>Retrolie</NuxtLink>
                                     <NuxtLink>Brook</NuxtLink>
                                 </div>
 
-                                <div class="mt-2 flex gap-3">
+                                <div class="mt-2 flex flex-wrap gap-3">
                                     <NuxtLink>Learts</NuxtLink>
                                     <NuxtLink>Vagabond</NuxtLink>
                                     <NuxtLink>Abby</NuxtLink>
@@ -321,10 +321,11 @@
 
             <!-- section 1st ends -->
 
+            
             <div class="section-4 mt-30">
-                <div class="hero-section flex bg-black">
-                    <div class="left w-1/2 bg-[#F8F8F8] clip-left">
-                        <div class="image relative flex flex-row justify-center w-full sm:h-auto h-screen items-center">
+                <div class="hero-section sm:flex">
+                    <div class="left sm:w-1/2 bg-[#F8F8F8] clip-left">
+                        <div class="image relative flex flex-row justify-center w-full sm:h-auto h-auto items-center">
                             <img src="../assets/home/section-4/left-image.png"
                                 class=" h-auto object-contain w-full lg:max-w-135 lg:ml-33" />
                         </div>
@@ -404,7 +405,7 @@
                         </div>
                     </div>
 
-                    <div class="right w-1/2 bg-[#DADADA] clip-right">
+                    <div class="right sm:w-1/2 bg-[#DADADA] clip-right">
                         <div class="box w-full lg:w-[534px] text-start pl-4 sm:pl-22 pt-13">
                             <div
                                 class="small-heading font-[Poppins] text-sm leading-[100%] tracking-[0%] text-[#767676]">
@@ -434,7 +435,7 @@
                                 class="price mt-5 font-[Poppins] font-medium text-xl leading-[100%] tracking-[0%] text-black">
                                 $100.<span class="text-base">00</span></div>
 
-                            <div class="button mt-5">
+                            <div class="button flex justify-center mb-2 mt-5">
                                 <button
                                     class="px-13 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white">Buy
                                     Now</button>
@@ -446,7 +447,7 @@
 
 
                 <div class="footer lg:px-59 mt-14 px-4 mb-14 flex justify-center items-center">
-                    <div class="features flex flex-wrap gap-13">
+                    <div class="features justify-center flex flex-wrap gap-13">
 
                         <div class="features-1">
                             <div class="icon-text flex text-start">
@@ -504,7 +505,6 @@
                 </div>
 
             </div>
-
             <!-- 4th section ends -->
             <!-- 5th section start -->
 

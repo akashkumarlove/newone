@@ -15,7 +15,7 @@
 
 
                 <div v-for="(card, i) in visibleCard" :class="['card-1 flex-shrink-0 relative z-10 w-130 sm:w-166 pt-17 pb-11 h-auto flex gap-5 sm:gap-15 p-9 pr-13  bg-white shadow-[0px_14.95px_44.86px_0px_rgba(46,33,61,0.08)] rounded-lg',
-                    i === 1 ? 'scale-100' : 'scale-70 opacity-40'
+                    i === 1 ? ' scale-85 sm:scale-100' : 'scale-70 opacity-40'
                 ]">
                     <div class="left background bg-[#D9D9D9]">
                         <div class="box relative w-34 sm:w-50 ml-9 sm:ml-0 h-46 flex justify-center items-center :bg-[#D9D9D9] ">
@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="right text-start">
-                        <div class="content text-sm text-[#484848]">{{ truncate(card.body, 21) }}</div>
+                        <div class="content text-sm text-[#484848]">{{ truncate(card.body, 16) }}</div>
 
                         <div class="flex gap-2 mt-4">
                             <Icon icon="mdi:star" width="24" height="24" />

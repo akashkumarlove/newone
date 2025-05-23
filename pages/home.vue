@@ -51,7 +51,7 @@
                             NEW COLLECTION
                         </div>
                         <button
-                            class="px-8 p-2.5 mt-5 shadow-lg cursor-pointer rounded-lg bg-[#000000] text-white mx-auto block md:left-[855px]">
+                            class="px-8 p-2.5 text-[10px] sm:text-base w- sm:w-40 mt-10 shadow-lg cursor-pointer rounded-lg bg-[#000000] text-white">
                             SHOP NOW
                         </button>
                         <img src="../assets/home/section-1/centar-bottom.png"
@@ -60,7 +60,7 @@
 
                     <!-- Right Section -->
                     <div class="right md:w-1/3 w-full lg:py-75 md:py-60 py-20 rounded-lg bg-[#E0E0E0] relative flex justify-center">
-                        <div class=" absolute bottom-0 w-[62px] sm:h-[310px] sm:w-[150px] lg:w-[185px] lg:h-[422px]">
+                        <div class=" absolute bottom-0 w-[62px] sm:h-[296px] sm:w-[130px] lg:w-[185px] lg:h-[422px]">
                             <img src="../assets/home/section-1/right.png" class="" /></div>
                     </div>
                 </div>
@@ -220,14 +220,15 @@
             <!-- 3rd section start -->
 
             <cards />
+
             <!-- 3rd section ends -->
 
             <!-- 4th section srart -->
 
             <div class="section-4 mt-30">
-                <div class="hero-section flex bg-black">
-                    <div class="left w-1/2 bg-[#F8F8F8] clip-left">
-                        <div class="image relative flex flex-row justify-center w-full sm:h-auto h-screen items-center">
+                <div class="hero-section sm:flex">
+                    <div class="left sm:w-1/2 bg-[#F8F8F8] clip-left">
+                        <div class="image relative flex flex-row justify-center w-full sm:h-auto h-auto items-center">
                             <img src="../assets/home/section-4/left-image.png"
                                 class=" h-auto object-contain w-full lg:max-w-135 lg:ml-33" />
                         </div>
@@ -307,7 +308,7 @@
                         </div>
                     </div>
 
-                    <div class="right w-1/2 bg-[#DADADA] clip-right">
+                    <div class="right sm:w-1/2 bg-[#DADADA] clip-right">
                         <div class="box w-full lg:w-[534px] text-start pl-4 sm:pl-22 pt-13">
                             <div
                                 class="small-heading font-[Poppins] text-sm leading-[100%] tracking-[0%] text-[#767676]">
@@ -337,7 +338,7 @@
                                 class="price mt-5 font-[Poppins] font-medium text-xl leading-[100%] tracking-[0%] text-black">
                                 $100.<span class="text-base">00</span></div>
 
-                            <div class="button mt-5">
+                            <div class="button flex justify-center mb-2 mt-5">
                                 <button
                                     class="px-13 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white">Buy
                                     Now</button>
@@ -349,7 +350,7 @@
 
 
                 <div class="footer lg:px-59 mt-14 px-4 mb-14 flex justify-center items-center">
-                    <div class="features flex flex-wrap gap-13">
+                    <div class="features justify-center flex flex-wrap gap-13">
 
                         <div class="features-1">
                             <div class="icon-text flex text-start">
@@ -514,5 +515,5 @@
 </template>
 
 <script setup>
-
+  import { Icon } from '@iconify/vue'
 </script>
