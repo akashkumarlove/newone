@@ -40,9 +40,9 @@
                     </div>
                 </div>
 
-                <div class="center w-88">
-                    <div class="img">
-                        <img src="../assets//product/image-main.png" />
+                <div class="center w-88 h-117">
+                    <div class="img h-117">
+                        <img src="../assets//product/image-main.png" class="h-full object-cover" />
                     </div>
                 </div>
 

@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="colors mt-5">
-                            <div class=" text-base texxt-black leading-[28px] font-[volkho] align-middle">Colors</div>
+                            <div class=" text-base text-black leading-[28px] font-[volkho] align-middle">Colors</div>
                             <div class="buttons flex flex-wrap gap-2 mt-2">
                                 <button class="bg-[#FF6C6C] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
                                 <button class="bg-[#FF7629] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
@@ -601,6 +601,8 @@
 
         </div>
     </div>
+
+    
 </template>
 
 
