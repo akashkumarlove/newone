@@ -48,7 +48,7 @@
                             <div class="buttons flex flex-wrap gap-1 mt-2">
                                 <button v-for="size in uniqueSize" @click="selectedSize = size" 
                                   class="border cursor-pointer border-[#8A8A8A] text-[12px] rounded-sm py-1.5 px-3">{{ size }}</button>
-                                 <button @click="clearFilter(selectedSize)"
+                                 <button @click="showAllSize"
                                     class="border cursor-pointer border-[#8A8A8A] text-[12px] rounded-sm py-1.5 px-3">All</button>
                             </div>
                         </div>
@@ -480,9 +480,10 @@ const uniqueSize = computed(() => {
     return[...new Set(allProducts.value.flatMap(s => s.size))]
 })
 
-const clearFilter = (clean) => {
-   clean.value = (null)
-}
+// const clearFilter = (clean) => {
+//    clean.value = (null)
+// }
+
 
 const showAllColor = () => {
     selectedColor.value = (null)
@@ -504,7 +505,9 @@ const showAllTag = () => {
     selectedTag.value = null
 }
 
-// const showAllSize = () => {
-//     selectedSize.value = null
-// }
+const showAllSize = () => {
+    selectedSize.value = null
+}
+
+
 </script>
