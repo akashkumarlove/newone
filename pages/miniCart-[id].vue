@@ -305,8 +305,8 @@
                     </div>
 
                     <div class="button mt-4.5 flex justify-center">
-                        <button
-                            class=" cursor-pointer text-white bg-black py-3.5 font-[poppins] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle sm:w-40 p-1 lg:w-122 rounded-lg">Checkout</button>
+                        <nuxt-link :to="`/checkout-${product.id}`"><button
+                            class=" cursor-pointer text-white bg-black py-3.5 font-[poppins] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle w-40 sm:w-80 p-1 lg:w-122 rounded-lg">Checkout</button></nuxt-link>
                     </div>
 
                     <div class="flex justify-center mt-3">
