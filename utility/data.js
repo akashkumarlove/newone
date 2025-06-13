@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+
 import image1 from '@/assets/shop/image-1.png'
 import image2 from '@/assets/shop/image-2.png'
 import image3 from '@/assets/shop/image-3.png'
@@ -18,7 +18,10 @@ export const allProducts = ref( [
     price: 8.00,
     image: image1,
     colors: ['#FF6C6C'],
-    brand: 'Minimog'
+    tags: 'Minimog',
+    brand: 'Minimog',
+    collection: 'Best sellers',
+    size: 'S'
   },
   {
     id: 2,
@@ -26,7 +29,10 @@ export const allProducts = ref( [
     price: 17.00,
     image: image2,
     colors: ['#FF7629'],
-    brand: 'Denim'
+    tags: 'Denim',
+    brand: 'Minimog',
+    collection: 'Best sellers',
+    size: 'S'
   },
   {
     id: 3,
@@ -34,54 +40,87 @@ export const allProducts = ref( [
     price: 106.00,
     image: image3,
     colors: ['#FFF06C'],
-    brand: 'Abby'
+    tags: 'Abby',
+    brand: 'Retroli',
+    collection: 'Best sellers',
+    size: 'S'
   },
   {
     id: 4,
     name: 'Boxy Denim Hat',
-    price: 25.00,
+    price: 60.00,
     image: image4,
     colors: ['#9BFF6C'],
-    brand: 'Hats'
+    tags: 'Hats',
+    brand: 'Retroli',
+    collection: 'New arrivals',
+    size: 'M'
+
   },
   {
     id: 5,
     name: 'Linen Plain Top',
-    price: 25.00,
+    price: 80.00,
     image: image5,
     colors: ['#6CFF9E'],
-    brand: 'Brook'
+    tags: 'Vagabond',
+    brand: 'Brook',
+    collection: 'New arrivals',
+    size: 'M'
   },
   {
     id: 6,
     name: 'Oversized T-shirt',
-    price: 11.00,
+    price: 120.00,
     image: image6,
     colors: ['#6CFFDC'],
-    brand: 'Abby'
+    tags: 'Sunglasses',
+    brand: 'Brook',
+    collection: 'New arrivals',
+    size: 'M'
   },
   {
     id: 7,
     name: 'Polarised Sunglasses',
-    price: 18.00,
+    price: 160.00,
     image: image7,
     colors: ['#6CB9FF'],
-    brand: 'Minimog'
+    tags: 'Bechwear',
+    brand: 'Learts',
+    collection: 'Accessories',
+    size: 'L'
   },
   {
     id: 8,
     name: 'Rockstar Jacket',
-    price: 22.00,
+    price: 190.00,
     image: image8,
     colors: ['#B66CFF'],
-    brand: 'Brook'
+    tags: 'Brook',
+    brand: 'Vagabond',
+    collection: 'Accessories',
+    size: 'L'
   },
   {
     id: 9,
     name: 'Dotted Black Dress',
-    price: 20.00,
+    price: 3500.00,
     image: image9,
     colors: ['#6C7BFF'],
-    brand: 'Abby'
+    tags: 'Bels',
+    brand: 'Abby',
+    collection: 'Accessories',
+    size: 'XL'
   }
 ])
+
+export const priceRanges = ref(
+  [
+  { label: "$0-$50", min: 0, max: 50 },
+  { label: "$50-$100", min: 50, max: 100 },
+  { label: "$100-$150", min: 100, max: 150 },
+  { label: "$150-$200", min: 150, max: 200 },
+  { label: "$300-$400", min: 300, max: Infinity }
+])
+
+

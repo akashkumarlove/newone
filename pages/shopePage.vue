@@ -16,7 +16,9 @@
                     </div>
 
                     <div class="tools hidden sm:flex justify-center items-center">
-                        <input type="text" placeholder="@" />
+                        <input v-model="searchQuery" type="text" placeholder="Search by name"
+                            class="px-3 py-1 border rounded" />
+
                         <button class="shop">#</button>
                         <NuxtLink class="star">*</NuxtLink>
                         <NuxtLink class="login">%</NuxtLink>
@@ -44,93 +46,67 @@
                         <div class="size mt-5">
                             <div class="text-base texxt-black leading-[28px] font-[volkho] align-middle">Size</div>
                             <div class="buttons flex flex-wrap gap-1 mt-2">
-                                <button class="border border-[#8A8A8A] text-[12px] rounded-sm py-1.5 px-3">S</button>
-                                <button class="border border-[#8A8A8A] text-[12px] rounded-sm py-1.5 px-3">M</button>
-                                <button class="border border-[#8A8A8A] text-[12px] rounded-sm py-1.5 px-3">L</button>
-                                <button class="border border-[#8A8A8A] text-[12px] rounded-sm py-1.5 px-2.5">XL</button>
+                                <button v-for="size in uniqueSize" @click="selectedSize = size" 
+                                  class="border cursor-pointer border-[#8A8A8A] text-[12px] rounded-sm py-1.5 px-3">{{ size }}</button>
+                                 <button @click="clearFilter(selectedSize)"
+                                    class="border cursor-pointer border-[#8A8A8A] text-[12px] rounded-sm py-1.5 px-3">All</button>
                             </div>
                         </div>
 
                         <div class="colors mt-5">
                             <div class=" text-base text-black leading-[28px] font-[volkho] align-middle">Colors</div>
                             <div class="buttons flex flex-wrap gap-2 mt-2">
-                                <button class="bg-[#FF6C6C] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#FF7629] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#FFF06C] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#9BFF6C] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#6CFF9E] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#6CFFDC] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#6CB9FF] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#6CF6FF] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#6CA7FF] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#6C7BFF] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#8A6CFF] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#B66CFF] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#FC6CFF] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
-                                <button class="bg-[#FF6C6C] shadow-[0_0_0_1px_#0000001A] rounded-full h-6 w-6"></button>
+                                <button v-for="(color, i) in uniqueColors" :style="{ backgroundColor: color }"
+                                    @click="selectedColor = color"
+                                    class="h-6 w-6 rounded-full shadow cursor-pointer"></button>
+                                <button @click="showAllColor"
+                                    class="h-6 w-6 rounded-full text-sm shadow cursor-pointer">All</button>
                             </div>
 
                         </div>
 
                         <div class="prices mt-5">
                             <div class="text-base text-black leading-[28px] font-[volkho] align-middle">Prices</div>
-                            <div
+                            <div v-for="price in priceRanges"
                                 class="links mt-3 flex flex-col font-[poppins] font-normal text-sm leading-[13px] align-middle text-[#8A8A8A]">
-                                <NuxtLink>$0-$50</NuxtLink><br />
-                                <NuxtLink>$50-$100</NuxtLink><br />
-                                <NuxtLink>$100-$150</NuxtLink><br />
-                                <NuxtLink>$150-$200</NuxtLink><br />
-                                <NuxtLink>$300-$400</NuxtLink>
+                                <NuxtLink class=" cursor-pointer" @click.prevent="selectedPrice = price">{{ price.label
+                                    }}</NuxtLink><br />
                             </div>
+                            <button @click="showAllPrice" class=" rounded text-sm text-[#8A8A8A] cursor-pointer">Show
+                                All</button>
                         </div>
 
                         <div class="brands mt-6">
                             <div class="text-base texxt-black leading-[28px] font-[volkho] align-middle">Brands</div>
-                            <div
-                                class="links mt-3 font-[poppins] font-normal text-sm leading-[13px] align-middle text-[#8A8A8A]">
-                                <div class=" flex flex-wrap gap-3">
-                                    <NuxtLink>Minimog</NuxtLink>
-                                    <NuxtLink>Retrolie</NuxtLink>
-                                    <NuxtLink>Brook</NuxtLink>
-                                </div>
-
-                                <div class="mt-2 flex flex-wrap gap-3">
-                                    <NuxtLink>Learts</NuxtLink>
-                                    <NuxtLink>Vagabond</NuxtLink>
-                                    <NuxtLink>Abby</NuxtLink>
-                                </div>
-
+                            <div 
+                                class="links mt-3 font-[poppins] font-normal text-sm leading-[13px] align-middle text-[#8A8A8A] gap-3 flex flex-wrap">
+                                <NuxtLink v-for="brand in uniqueBrands" class="cursor-pointer" @click.prevent="selectedBrand = brand">{{ brand }}
+                                </NuxtLink>
                             </div>
+                            <button @click="showAllBrand"
+                                class=" mt-1.5 rounded text-sm text-[#8A8A8A] cursor-pointer">Show All</button>
                         </div>
 
                         <div class="collections mt-6">
                             <div class="text-base text-black leading-[28px] font-[volkho] align-middle ">Collections
                             </div>
-                            <div
+                            <div v-for="collection in uniqueCollections"
                                 class="links mt-3 font-[poppins] font-normal text-sm leading-[13px] align-middle text-[#8A8A8A] flex flex-col gap-2">
-                                <NuxtLink>All Products</NuxtLink>
-                                <NuxtLink>Best sellers</NuxtLink>
-                                <NuxtLink>New arrivals</NuxtLink>
-                                <NuxtLink>Accessories</NuxtLink>
+                                <NuxtLink class="cursor-pointer" @click.prevent="selectedCollection = collection">{{
+                                    collection }}</NuxtLink>
                             </div>
+                            <button @click="showAllCollection"
+                                class=" mt-1.5 rounded text-sm text-[#8A8A8A] cursor-pointer">All Collection</button>
                         </div>
 
                         <div class="tags mt-6">
                             <div class="text-base text-black leading-[28px] font-[volkho] align-middle ">Tags</div>
-                            <div
+                            <div 
                                 class="links mt-3 font-[poppins] font-normal text-sm leading-[13px] align-middle text-[#8A8A8A] gap-3 flex flex-wrap">
-                                <NuxtLink>Fashion</NuxtLink>
-                                <NuxtLink>Hats</NuxtLink>
-                                <NuxtLink>Sandel</NuxtLink>
-                                <NuxtLink>Bels</NuxtLink>
-                                <NuxtLink>Bags</NuxtLink>
-                                <NuxtLink>Snackers</NuxtLink>
-                                <NuxtLink>Denim</NuxtLink>
-                                <NuxtLink>Minimog</NuxtLink>
-                                <NuxtLink>Vagabond</NuxtLink>
-                                <NuxtLink>Sunglasses</NuxtLink>
-                                <NuxtLink>Bechwear</NuxtLink>
+                                <NuxtLink v-for="tag in uniqueTags" @click.prevent="selectedTag = tag" class="cursor-pointer">{{ tag }}</NuxtLink>
                             </div>
+                            <button @click="showAllTag"
+                                class=" mt-1.5 rounded text-sm text-[#8A8A8A] cursor-pointer">All Tag</button>
                         </div>
 
                     </div>
@@ -151,158 +127,23 @@
 
                         <div class="cards flex flex-wrap gap-3.5 gap-y-10 mt-5">
 
-                            <div class="card">
-                                <div class="img w-58">
-                                    <img src="../assets/shop/image-1.png" />
-                                </div>
+                            <div v-for="product in filteredProducts" class="card">
+                                <nuxt-link :to="`/productpage-${ product.id}`"><div class="img w-58">
+                                    <img :src="product.image" />
+                                </div></nuxt-link>
                                 <div
                                     class=" mt-2 heading font-[volkhov] font-normal text-sm leading-6 align-middle text-black">
-                                    Rounded Red Hat</div>
+                                    {{ product.name }}</div>
                                 <div class="price font-[jost] font-normal text-base leading-6 align-middle text-black">
-                                    $8.00</div>
+                                    ${{ product.price }}</div>
                                 <div class="button mt-3 flex gap-2">
-                                    <button
-                                        class="bg-[#FFF06C] shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
+                                    <button :style="{ backgroundColor: product.colors[0] }"
+                                        class="rounded-full h-5 w-5"></button>
                                     <button class="bg-black shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
 
                                 </div>
                             </div>
 
-                            <div class="card">
-                                <div class="img w-58">
-                                    <img src="../assets/shop/image-2.png" />
-                                </div>
-                                <div
-                                    class=" mt-2 heading font-[volkhov] font-normal text-sm leading-6 align-middle text-black">
-                                    Rounded Red Hat</div>
-                                <div class="price font-[jost] font-normal text-base leading-6 align-middle text-black">
-                                    $8.00</div>
-                                <div class="button mt-3 flex gap-2">
-                                    <button
-                                        class="bg-[#FFF06C] shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-                                    <button class="bg-black shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="img w-58">
-                                    <img src="../assets/shop/image-3.png" />
-                                </div>
-                                <div
-                                    class=" mt-2 heading font-[volkhov] font-normal text-sm leading-6 align-middle text-black">
-                                    Rounded Red Hat</div>
-                                <div class="price font-[jost] font-normal text-base leading-6 align-middle text-black">
-                                    $8.00</div>
-                                <div class="button mt-3 flex gap-2">
-                                    <button
-                                        class="bg-[#FFF06C] shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-                                    <button class="bg-black shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="img w-58">
-                                    <img src="../assets/shop/image-4.png" />
-                                </div>
-                                <div
-                                    class=" mt-2 heading font-[volkhov] font-normal text-sm leading-6 align-middle text-black">
-                                    Rounded Red Hat</div>
-                                <div class="price font-[jost] font-normal text-base leading-6 align-middle text-black">
-                                    $8.00</div>
-                                <div class="button mt-3 flex gap-2">
-                                    <button
-                                        class="bg-[#FFF06C] shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-                                    <button class="bg-black shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="img w-58">
-                                    <img src="../assets/shop/image-5.png" />
-                                </div>
-                                <div
-                                    class=" mt-2 heading font-[volkhov] font-normal text-sm leading-6 align-middle text-black">
-                                    Rounded Red Hat</div>
-                                <div class="price font-[jost] font-normal text-base leading-6 align-middle text-black">
-                                    $8.00</div>
-                                <div class="button mt-3 flex gap-2">
-                                    <button
-                                        class="bg-[#FFF06C] shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-                                    <button class="bg-black shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="img w-58">
-                                    <img src="../assets/shop/image-6.png" />
-                                </div>
-                                <div
-                                    class=" mt-2 heading font-[volkhov] font-normal text-sm leading-6 align-middle text-black">
-                                    Rounded Red Hat</div>
-                                <div class="price font-[jost] font-normal text-base leading-6 align-middle text-black">
-                                    $8.00</div>
-                                <div class="button mt-3 flex gap-2">
-                                    <button
-                                        class="bg-[#FFF06C] shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-                                    <button class="bg-black shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="img w-58">
-                                    <img src="../assets/shop/image-7.png" />
-                                </div>
-                                <div
-                                    class=" mt-2 heading font-[volkhov] font-normal text-sm leading-6 align-middle text-black">
-                                    Rounded Red Hat</div>
-                                <div class="price font-[jost] font-normal text-base leading-6 align-middle text-black">
-                                    $8.00</div>
-                                <div class="button mt-3 flex gap-2">
-                                    <button
-                                        class="bg-[#FFF06C] shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-                                    <button class="bg-black shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="img w-58">
-                                    <img src="../assets/shop/image-8.png" />
-                                </div>
-                                <div
-                                    class=" mt-2 heading font-[volkhov] font-normal text-sm leading-6 align-middle text-black">
-                                    Rounded Red Hat</div>
-                                <div class="price font-[jost] font-normal text-base leading-6 align-middle text-black">
-                                    $8.00</div>
-                                <div class="button mt-3 flex gap-2">
-                                    <button
-                                        class="bg-[#FFF06C] shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-                                    <button class="bg-black shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="img w-58">
-                                    <img src="../assets/shop/image-9.png" />
-                                </div>
-                                <div
-                                    class=" mt-2 heading font-[volkhov] font-normal text-sm leading-6 align-middle text-black">
-                                    Rounded Red Hat</div>
-                                <div class="price font-[jost] font-normal text-base leading-6 align-middle text-black">
-                                    $8.00</div>
-                                <div class="button mt-3 flex gap-2">
-                                    <button
-                                        class="bg-[#FFF06C] shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-                                    <button class="bg-black shadow-[0_0_0_1px_#0000001A] rounded-full h-5 w-5"></button>
-
-                                </div>
-                            </div>
 
                         </div>
 
@@ -321,7 +162,7 @@
 
             <!-- section 1st ends -->
 
-            
+
             <div class="section-4 mt-30">
                 <div class="hero-section sm:flex">
                     <div class="left sm:w-1/2 bg-[#F8F8F8] clip-left">
@@ -602,7 +443,7 @@
         </div>
     </div>
 
-    
+
 </template>
 
 
@@ -610,4 +451,60 @@
 
 <script setup>
 import { Icon } from '@iconify/vue'
+import { priceRanges } from '../utility/data'
+
+
+const { selectedColor,  selectedSize, searchQuery, selectedTag, filteredProducts, selectedCollection, selectedPrice, selectedBrand, allProducts } = useFilters()
+
+console.log("all ", filteredProducts)
+console.log("alldata ", allProducts)
+
+
+const uniqueColors = computed(() => {
+    return [... new Set(allProducts.value.flatMap(p => p.colors))]
+})
+
+const uniqueBrands = computed(() => {
+    return [...new Set(allProducts.value.flatMap(u => u.brand))]
+})
+
+const uniqueCollections = computed(() => {
+    return [...new Set(allProducts.value.flatMap(c => c.collection))]
+})
+
+const uniqueTags = computed(() => {
+    return [...new Set(allProducts.value.flatMap(t => t.tags))]
+})
+
+const uniqueSize = computed(() => {
+    return[...new Set(allProducts.value.flatMap(s => s.size))]
+})
+
+const clearFilter = (clean) => {
+   clean.value = (null)
+}
+
+const showAllColor = () => {
+    selectedColor.value = (null)
+}
+
+const showAllPrice = () => {
+    selectedPrice.value = null
+}
+
+const showAllBrand = () => {
+    selectedBrand.value = null
+}
+
+const showAllCollection = () => {
+    selectedCollection.value = null
+}
+
+const showAllTag = () => {
+    selectedTag.value = null
+}
+
+// const showAllSize = () => {
+//     selectedSize.value = null
+// }
 </script>

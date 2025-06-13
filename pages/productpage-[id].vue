@@ -37,12 +37,13 @@
                         <img src="../assets/product/image-5.png" />
                         <img src="../assets/product/image-6.png" />
                         <img src="../assets/product/image-7.png" />
+                        <!-- src="../assets//product/image-main.png" -->
                     </div>
                 </div>
 
                 <div class="center w-88 h-117">
-                    <div class="img h-117">
-                        <img src="../assets//product/image-main.png" class="h-full object-cover" />
+                    <div v-if="product" class="img h-117">
+                        <img :src="product.image" class="h-full object-cover" />
                     </div>
                 </div>
 
@@ -163,12 +164,12 @@
 
                     <div class="add-card flex justify-between items-center">
                         <div class="num mt-2 flex items-center border border-[#EEEEEE] gap-7 p-1 rounded-sm">
-                            <Icon icon="mdi:minus" class="w-3 h-3 text-gray-700" />
-                            <div class="font-[Jost] font-normal text-sm leading-[24px] tracking-[0%] text-center align-middle">1</div>
-                            <Icon icon="mdi:plus" class="w-3 h-3 text-gray-700" />
+                            <button class="cursor-pointer" @click="counter.decrement"><Icon icon="mdi:minus" class="w-3 h-3 text-gray-700" /></button>
+                            <div class="font-[Jost] font-normal text-sm leading-[24px] tracking-[0%] text-center align-middle">{{ counter.count }}</div>
+                            <button class="cursor-pointer" @click="counter.increment"><Icon icon="mdi:plus" class="w-3 h-3 text-gray-700" /></button>
                         </div>
 
-                        <button class="border border-black font-[Volkhov] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle sm:w-40 p-1 lg:w-85 rounded-sm">Add to cart</button>
+                        <nuxt-link :to="`/miniCart-${product.id}`"><button class="border cursor-pointer border-black font-[Volkhov] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle sm:w-40 p-1 lg:w-85 rounded-sm">Add to cart</button></nuxt-link>
                     </div>
                      
                     <div class="enquiry mt-10 flex gap-8">
@@ -604,5 +605,17 @@
 
 
 <script setup>
+
 import { Icon } from '@iconify/vue'
+import { useCartStore } from '@/stores/useCartStore';
+
+const {allProducts} = useFilters()
+const counter = useCartStore()
+
+const route = useRoute()
+const id = parseInt(route.params.id)
+
+const product = allProducts.value.find(p => p.id ===id)
+
+
 </script>
