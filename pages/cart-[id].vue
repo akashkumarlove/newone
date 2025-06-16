@@ -4,7 +4,7 @@
             <!-- Section-1 -->
             <div class="section-1 relative lg:px-59 px-2 w-full h-screen md:px-10 mt-12 ">
                 <!-- navbar -->
-                <div class="navbar flex justify-between ">
+                <div class="navbar flex sm:justify-between justify-center flex-wrap ">
 
                     <div class="fasco font-[Volkhov] text-4xl leading-[100%] tracking-[0%] text-[#484848]">FASCO</div>
                     <div
@@ -15,16 +15,17 @@
                         <NuxtLink>Pages</NuxtLink>
                     </div>
 
-                    <div class="tools gap-2 hidden sm:flex justify-center items-center">
-                        <input type="text" placeholder="@"  />
-                        <button class="shop">#</button>
-                        <NuxtLink class="star">*</NuxtLink>
+                    <div class="tools gap-2 flex justify-center items-center">
+                        <input class="hidden sm:block" type="text" placeholder="@"  />
+                        <button class="shop hidden sm:block">#</button>
+                        <NuxtLink class="star hidden sm:block">*</NuxtLink>
                         <div class=" relative">
                             <div class=" absolute left-3 text-center bottom-2 w-5 h-5 rounded-full bg-red-600 text-white text-sm">{{ counter.count }}</div>
                             <NuxtLink class="login"><Icon icon="mdi:cart-outline" class="w-4 h-4 text-gray-800" /></NuxtLink>
                         </div>
 
                     </div>
+                    
 
                 </div>
 
@@ -40,7 +41,7 @@
 
                 <!-- Main Section -->
 
-                <div class="flex mt-8 justify-between flex-wrap heading font-[Volkhov] text-lg leading-[32px] text-black">
+                <div class="sm:flex hidden mt-8 justify-between flex-wrap heading font-[Volkhov] text-lg leading-[32px] text-black">
                     <div class="">Product</div>
                     <div class="ml-45">Price</div>
                     <div class="">Quantity</div>
@@ -49,7 +50,7 @@
 
                 <div class="w-full mt-5 h-px border border-[#00000063]"></div>
 
-                <div class="content justify-between flex mt-6">
+                <div class="content justify-between sm:flex mt-6">
 
                     <div class="frist flex gap-4">
                         <div v-if="product" class=" left image w-33">
@@ -62,7 +63,7 @@
                             <div class=" font-normal text-[17px] mt-3 text-[#8A8A8A] tracking-[0] ">Color : Red
                             </div>
                             <div class="flex mt-3">
-                                <button
+                                <button @click="counter.count = 0"
                                     class=" font-[poppins] cursor-pointer text-[#8A8A8A] text-lg border-b border-[#8A8A8A] hover:text-gray-700">Remove
                                 </button>
                             </div>
@@ -71,31 +72,48 @@
 
                     </div>
 
-                    <div class="second font-[Volkhov] font-normal text-lg leading-[32px]">$14.90</div>
+                    <div class="second hidden sm:block font-[Volkhov] font-normal text-lg leading-[32px]">$14.90</div>
+                    
+                     <!-- this code is only for mobile -->
+                    <div class="flex sm:hidden justify-between mt-4 mr-2 mb-4">
+                        <div class="second font-[Volkhov] font-normal text-lg leading-[32px]">$14.90</div>
+                        <div class="font-[Volkhov] text-lg leading-[32px] text-black">Price</div>
+                    </div>
+                    <!-- end -->
 
-                    <div class="third">
+                    <div class="third flex justify-between sm:block">
                         <div
-                                class="quantity-cahngemt-3 flex items-center gap-4 border border-[#8a8a8a] px-2 rounded-sm py-2">
+                                class="quantity-cahngemt-3 flex items-center gap-4  w-25 border border-[#8a8a8a] px-2 rounded-sm py-2">
                                 <button class="cursor-pointer" @click="counter.decrement"><Icon icon="mdi:minus" class="w-4 h-4 text-black" /></button>
                                 <div
                                     class="font-[Poppins] font-normal text-xl leading-[100%] tracking-[0] text-center align-middle text-[#8A8A8A]">
                                     {{ counter.count }}</div>
                                 <button class="cursor-pointer" @click="counter.increment"><Icon icon="mdi:plus" class="w-4 h-4 text-black" /></button>
                             </div>
+
+                            <div class="sm:hidden block mr-2 font-[Volkhov] text-lg leading-[32px] text-black">Quantiy </div>
                     </div>
 
-                    <div class="fourth font-[Volkhov] font-normal text-lg leading-[32px] ">$14.90</div>
+                    <div class="fourth hidden sm:block font-[Volkhov] font-normal text-lg leading-[32px] ">$14.90</div>
+                     
+                    <!-- this code is only for mobile -->
+                    <div class="flex sm:hidden justify-between mt-4 mr-2">
+                        <div class="fourth font-[Volkhov] font-normal text-lg leading-[32px] ">$14.90</div>
+                        <div class="font-[Volkhov] text-lg leading-[32px] text-black">Total</div>
+                    </div>
+
+                    <!-- end -->
 
                 </div>
 
                  <div class="w-full mt-7 h-px border border-[#00000063]"></div>
 
                  <div class="lg:ml-130 sm:ml-90" >
-                    <div class="cheakbox flex items-center gap-3  mt-5 text">
+                    <div class="cheakbox flex items-center gap-3 mt-5 text">
                         <label class=" font-bold">
                             <input type="checkbox" class="form-checkbox cursor-pointer h-6 w-6 text-black" />
                         </label>
-
+   
                         <div class=" font-normal text-lg leading-[42px] tracking-[0] align-middle text-[#8A8A8A]">
                             For <span class="text-black">$10.00</span> Please Wrap The Product
                         </div>
@@ -115,7 +133,7 @@
 
                      <div class="button  mt-4.5 flex justify-center">
                         <nuxt-link :to="`/checkout-${product.id}`"><button
-                            class=" cursor-pointer text-white bg-black py-3.5 font-[poppins] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle w-40 sm:w-80 p-1 lg:w-122 rounded-lg">Checkout</button></nuxt-link>
+                            class=" cursor-pointer text-white bg-black py-3.5 font-[poppins] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle w-70 sm:w-80 p-1 lg:w-122 rounded-lg">Checkout</button></nuxt-link>
                     </div>
 
                     <div class="flex justify-center mt-3">
@@ -139,7 +157,7 @@
 
             <!-- 7th section start -->
 
-            <div class="section-7 sm:mt-1 mt-40 flex lg:px-50 sm:px-20 items-center mb-9">
+            <div class="section-7 mt-65  sm:-mt-40 lg:mt-10 flex lg:px-59 sm:px-10 items-center mb-9">
                 <div class="left w-135">
                     <img src="../assets/home/section-7/image-left.png" class="w-full" />
                 </div>

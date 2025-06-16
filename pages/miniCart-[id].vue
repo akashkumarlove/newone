@@ -1,8 +1,8 @@
 <template>
-    <div class="wrapper h-screen w-screen overflow-hidden">
+    <div class="wrapper h-screen w-screen sm:overflow-hidden">
         <div class="main relative">
             <!-- bhehind wrapper -->
-            <div class="section-1  lg:px-59 px-2 w-full h-screen md:px-10 mt-12 ">
+            <div class="section-1 hidden sm:block lg:px-59 px-2 w-full h-screen md:px-10 mt-12 ">
                 <!-- navbar -->
                 <div class="navbar flex justify-between ">
 
@@ -236,7 +236,7 @@
             </div>
 
             <!-- side page main  -->
-                <div class=" bg-white absolute right-0 bottom-0 px-8.5 w-2/5 h-full">
+                <div class=" bg-white absolute sm:right-0 sm:bottom-0 px-3 sm:px-8.5 sm:w-2/5 h-full">
 
                     <div class="flex justify-between">
                         <di v
@@ -282,7 +282,7 @@
 
                     <div class="w-full mt-4 h-px border border-[#00000063]"></div>
 
-                    <div class="cheakbox flex items-center gap-3 mt-45">
+                    <div class="cheakbox flex items-center gap-3 mt-15 sm:mt-45">
                         <label class=" font-bold">
                             <input type="checkbox" class="form-checkbox cursor-pointer h-6 w-6 text-black" />
                         </label>
@@ -306,11 +306,11 @@
 
                     <div class="button mt-4.5 flex justify-center">
                         <nuxt-link :to="`/checkout-${product.id}`"><button
-                            class=" cursor-pointer text-white bg-black py-3.5 font-[poppins] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle w-40 sm:w-80 p-1 lg:w-122 rounded-lg">Checkout</button></nuxt-link>
+                            class=" cursor-pointer text-white bg-black py-3.5 font-[poppins] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle w-70 sm:w-80 p-1 lg:w-122 rounded-lg">Checkout</button></nuxt-link>
                     </div>
 
                     <div class="flex justify-center mt-3">
-                        <nuxt-link :to="`/cart-${product.id}`"><button class=" cursor-pointer font-[Poppins] font-bold text-lg border-b border-black hover:text-gray-700">
+                        <nuxt-link :to="`/cart-${product.id}`"><button class=" mb-5 sm:mb-0 cursor-pointer font-[Poppins] font-bold text-lg border-b border-black hover:text-gray-700">
                         View Cart
                     </button></nuxt-link>
 

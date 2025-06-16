@@ -4,7 +4,7 @@
             <!-- section 1 start -->
             <div class="section-1 relative lg:px-59 px-2 w-full h-screen md:px-10 mt-12">
                 <!-- navbar -->
-                <div class="navbar flex justify-between ">
+                <div class="navbar flex flex-wrap justify-between ">
 
                     <div class="fasco font-[Volkhov] text-4xl leading-[100%] tracking-[0%] text-[#484848]">FASCO</div>
                     <div
@@ -15,10 +15,10 @@
                         <NuxtLink>Pages</NuxtLink>
                     </div>
 
-                    <div class="tools gap-2 hidden sm:flex justify-center items-center">
-                        <input type="text" placeholder="@" />
-                        <button class="shop">#</button>
-                        <NuxtLink class="star">*</NuxtLink>
+                    <div class="tools gap-2 sm:flex justify-center items-center">
+                        <input class="hidden sm:block" type="text" placeholder="@" />
+                        <button class="shop hidden sm:block">#</button>
+                        <NuxtLink class="star hidden sm:block">*</NuxtLink>
                         <div class=" relative">
                             <div
                                 class=" absolute left-3 text-center bottom-2 w-5 h-5 rounded-full bg-red-600 text-white text-sm">
@@ -40,10 +40,10 @@
 
                 <!-- hero section  -->
 
-                <div class="hero-section flex">
+                <div class="hero-section flex-row sm:flex">
 
                     <!-- left -->
-                    <div class="left w-1/2 mt-16 mr-5">
+                    <div class="left sm:w-1/2 mt-16 mr-5">
                         <div class="heading flex justify-between items-center">
                             <div class="text-4xl text-[#484848] leading-[100%] font-normal font-[Volkhov]">Contact</div>
                             <div class="text-sm leading-[100%] font-normal text-right font-[Poppins]">Have an account?
@@ -162,7 +162,7 @@
 
                     <!-- right -->
 
-                    <div class="right bg-[#F5F5F5] w-1/2 px-17 pt-15">
+                    <div class="right bg-[#F5F5F5] sm:w-1/2 px-2 pb-3 sm:pb-0 lg:px-17 pt-15">
                         <div class="flex gap-4 items-center">
                             <div v-if="product" class="w-27 relative">
                                 <img :src="product.image" />

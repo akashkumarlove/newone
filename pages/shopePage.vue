@@ -15,7 +15,7 @@
                         <NuxtLink>Pages</NuxtLink>
                     </div>
 
-                    <div class="tools hidden sm:flex justify-center items-center">
+                    <div class="tools hidden sm:flex justify-center flex-wrap items-center">
                         <input v-model="searchQuery" type="text" placeholder="Search by name"
                             class="px-3 py-1 border rounded" />
 
