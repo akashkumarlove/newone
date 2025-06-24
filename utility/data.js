@@ -123,4 +123,17 @@ export const priceRanges = ref(
   { label: "$300-$400", min: 300, max: Infinity }
 ])
 
+// Nuxt 3 API route: server/api/colors.ts
+
+export const colors = ref(
+    [
+      { name: 'Sky Blue', value: '#3498db' },
+      { name: 'Green', value: '#2ecc71' },
+      { name: 'Red', value: '#e74c3c' },
+      { name: 'Dark', value: '#2c3e50' },
+      { name: 'Light Gray', value: '#ecf0f1' }
+    ]
+)
+
+
 
