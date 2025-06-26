@@ -4,7 +4,7 @@
             <!-- Section-1 -->
             <div class="section-1 relative lg:px-59 px-2 w-full h-screen md:px-10 mt-12 ">
                 <!-- navbar -->
-                <div class="navbar flex sm:justify-between justify-center flex-wrap ">
+                <div class="navbar flex sm:justify-between justify-center flex-wrap rounded-lg" :style="{backgroundColor: theme.selected.header}">
 
                     <div class="fasco font-[Volkhov] text-4xl leading-[100%] tracking-[0%] text-[#484848]">FASCO</div>
                     <div
@@ -133,7 +133,7 @@
 
                      <div class="button  mt-4.5 flex justify-center">
                         <nuxt-link :to="`/checkout-${product.id}`"><button
-                            class=" cursor-pointer text-white bg-black py-3.5 font-[poppins] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle w-70 sm:w-80 p-1 lg:w-122 rounded-lg">Checkout</button></nuxt-link>
+                            class=" cursor-pointer text-white bg-black py-3.5 font-[poppins] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle w-70 sm:w-80 p-1 lg:w-122 rounded-lg" :style="{backgroundColor: theme.selected.button}">Checkout</button></nuxt-link>
                     </div>
 
                     <div class="flex justify-center mt-3">
@@ -175,7 +175,7 @@
 
                     <div class="button mt-11 flex justify-center">
                         <button
-                            class="px-10 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white">Subscribe
+                            class="px-10 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">Subscribe
                             Now</button>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
 
             <!-- footer start  -->
 
-            <div class="footer">
+            <div class="footer" :style="{backgroundColor: theme.selected.footer}">
                 <div class="seprator border border-[#DEDFE1] mb-7"></div>
                 <div class="content flex lg:mx-60 md:mx-3 justify-between">
                     <div class="left">
@@ -226,6 +226,9 @@
 
 import { Icon } from '@iconify/vue'
 import { useCartStore } from '#imports';
+import { useThemeStore } from '#imports';
+import { useThemeLoader } from '#imports';
+import { useLoading } from '#imports';
 
 const {allProducts} = useFilters()
 
@@ -238,4 +241,14 @@ const product = allProducts.value.find(p => p.id === id)
 
 
 const counter = useCartStore()
+
+await useThemeLoader()
+
+const theme = useThemeStore()
+const isLoading = useLoading()
+
+watch(() => theme.selected, (val) => {
+    console.log('theme updated' , val)
+} , {deep: true})
+
 </script>

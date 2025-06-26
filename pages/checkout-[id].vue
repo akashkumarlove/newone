@@ -4,7 +4,7 @@
             <!-- section 1 start -->
             <div class="section-1 relative lg:px-59 px-2 w-full h-screen md:px-10 mt-12">
                 <!-- navbar -->
-                <div class="navbar flex flex-wrap justify-between ">
+                <div class="navbar flex flex-wrap justify-between rounded-lg" :style="{backgroundColor: theme.selected.header}" >
 
                     <div class="fasco font-[Volkhov] text-4xl leading-[100%] tracking-[0%] text-[#484848]">FASCO</div>
                     <div
@@ -146,7 +146,7 @@
 
                         <div class="mt-6">
                             <button
-                                class="text-white cursor-pointer rounded-lg py-5 w-full leading-[100%] text-[13px] bg-black font-normal font-[Poppins]">Pay
+                                class="text-white cursor-pointer rounded-lg py-5 w-full leading-[100%] text-[13px] bg-black font-normal font-[Poppins]" :style="{backgroundColor: theme.selected.button}">Pay
                                 Now</button>
                         </div>
 
@@ -187,7 +187,7 @@
                                 class=" align-middle text-center w-70 text-[13px] text-[#484848] leading-[100%] font-normal font-[Poppins] bg-white"
                                 placeholder="Discount code" />
                             <button
-                                class="text-white cursor-pointer rounded-lg py-5 px-11 leading-[100%] text-[13px] bg-black font-normal font-[Poppins]">Apply</button>
+                                class="text-white cursor-pointer rounded-lg py-5 px-11 leading-[100%] text-[13px] bg-black font-normal font-[Poppins]" :style="{backgroundColor: theme.selected.button}">Apply</button>
                         </div>
 
                         <div
@@ -224,6 +224,9 @@
 
 import { useCartStore } from '#imports';
 import { Icon } from '@iconify/vue'
+import { useThemeStore } from '#imports';
+import { useThemeLoader } from '#imports';
+import { useLoading } from '#imports';
 
 const counter = useCartStore()
 const {allProducts} = useFilters()
@@ -231,6 +234,15 @@ const {allProducts} = useFilters()
 const route = useRoute()
 
 const id = parseInt(route.params.id)
+
+await useThemeLoader()
+
+const theme = useThemeStore()
+const isLoading = useLoading()
+
+watch(() => theme.selected, (val) => {
+    console.log('theme updated' , val)
+} , {deep : true})
 
 const product = allProducts.value.find(p => p.id === id)
 </script>

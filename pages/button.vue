@@ -1,7 +1,12 @@
 <template>
-    <div class="wrapper overflow-hidden h-screen w-screen" :style="{backgroundColor: theme.selected.background}">
+    <div class="wrapper overflow-hidden h-screen w-screen" :style="{ backgroundColor: theme.selected.background }">
 
-        <div class="Header text-black flex" :style="{backgroundColor: theme.selected.header}" >
+        <!-- 🔁 Loader Overlay -->
+        <div v-if="isLoading" class="absolute inset-0 bg-white/70 z-50 text-5xl flex items-center justify-center">
+            <span class="text-xl font-semibold">Loading...</span>
+        </div>
+
+        <div class="Header text-black flex" :style="{ backgroundColor: theme.selected.header }">
             HEY I AM HEADER
         </div>
 
@@ -11,7 +16,7 @@
             </button>
         </div>
 
-        <div class="footer text-black" :style="{backgroundColor: theme.selected.footer}" >
+        <div class="footer text-black" :style="{ backgroundColor: theme.selected.footer }">
             HEY I AM FOOTER
         </div>
     </div>
@@ -21,10 +26,18 @@
 <script setup>
 import { useThemeStore } from '@/stores/themeStore'
 import { useThemeLoader } from '@/composables/useThemeLoader'
+import { useLoading } from '#imports'
 
 // 🔁 Pehle API se data lo agar nahi aaya ho toh
 await useThemeLoader()
 
 // 🔌 Store ka access lo
 const theme = useThemeStore()
+const isLoading = useLoading() 
+
+watch(() => theme.selected, (val) => {
+  console.log('🧠 Full theme object updated:', val)
+}, { deep: true })
+
+
 </script>

@@ -2,9 +2,9 @@
     <div class="wrapper h-screen w-screen sm:overflow-hidden">
         <div class="main relative">
             <!-- bhehind wrapper -->
-            <div class="section-1 hidden sm:block lg:px-59 px-2 w-full h-screen md:px-10 mt-12 ">
+            <div class="section-1 hidden sm:block lg:px-59 px-2 w-full h-screen md:px-10 mt-12 blur-sm">
                 <!-- navbar -->
-                <div class="navbar flex justify-between ">
+                <div class="navbar flex justify-between rounded-lg " :style="{backgroundColor: theme.selected.header}">
 
                     <div class="fasco font-[Volkhov] text-4xl leading-[100%] tracking-[0%] text-[#484848]">FASCO</div>
                     <div
@@ -236,9 +236,9 @@
             </div>
 
             <!-- side page main  -->
-                <div class=" bg-white absolute sm:right-0 sm:bottom-0 px-3 sm:px-8.5 sm:w-2/5 h-full">
+                <div class=" bg-white absolute sm:right-0 mb-12 sm:bottom-0 px-3 sm:px-8.5 sm:w-2/5 h-full">
 
-                    <div class="flex justify-between">
+                    <div class="flex justify-between mt-10">
                         <di v
                             class="heading font-[Volkhov] font-normal text-4xl leading-[32px] tracking-[0] text-center align-middle capitalize text-black">
                             Shopping Cart</di>
@@ -304,9 +304,9 @@
                             $100.00</div>
                     </div>
 
-                    <div class="button mt-4.5 flex justify-center">
+                    <div class="button mt-4.5 flex justify-center" >
                         <nuxt-link :to="`/checkout-${product.id}`"><button
-                            class=" cursor-pointer text-white bg-black py-3.5 font-[poppins] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle w-70 sm:w-80 p-1 lg:w-122 rounded-lg">Checkout</button></nuxt-link>
+                            class=" cursor-pointer text-white bg-black py-3.5 font-[poppins] font-normal text-sm leading-[23px] tracking-[0%] text-center align-middle w-70 sm:w-80 p-1 lg:w-122 rounded-lg" :style="{backgroundColor: theme.selected.button}">Checkout</button></nuxt-link>
                     </div>
 
                     <div class="flex justify-center mt-3">
@@ -329,6 +329,9 @@
 import { Icon } from '@iconify/vue'
 import { useCartStore } from '#imports';
 import { allProducts } from '~/utility/data';
+import { useThemeStore } from '#imports';
+import { useThemeLoader } from '#imports';
+import { useLoading } from '#imports';
 
 
 const counter = useCartStore()
@@ -339,4 +342,14 @@ const route = useRoute()
 const id = parseInt(route.params.id)
 
 const product = allProducts.value.find(p => p.id === id)
+
+await useThemeLoader()
+
+const theme = useThemeStore()
+const isLoading = useLoading()
+
+watch(() => theme.selected, (val) => {
+    console.log('theme updated , val')
+}, {deep: true})
+
 </script>

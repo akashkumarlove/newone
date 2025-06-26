@@ -6,7 +6,7 @@
             <!-- 1st section start -->
             <div class="section-1 lg:px-59 px-2 flex-row md:justify-center md:items-center md:px-10">
                 <!-- nav--bar -->
-                <div class="nav-bar flex items-center justify-between">
+                <div class="nav-bar flex items-center justify-between rounded-lg" :style="{backgroundColor: theme.selected.header}">
                     <div class="left-part">
                         <div class="heading text-3xl md:text-4xl leading-[100%] tracking-[0%] font-['Volkhov']">FASCO
                         </div>
@@ -20,7 +20,7 @@
                         <button class="cursor-pointer">Packages</button>
                         <button class="cursor-pointer">Sign In</button>
                         <button
-                            class="px-8 cursor-pointer p-4 mt-5 shadow-lg left-[855px] rounded-lg bg-[#000000] text-white">Sign
+                            class="px-8 cursor-pointer p-4 mt-5 shadow-lg left-[855px] rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">Sign
                             Up</button>
                     </div>
 
@@ -51,7 +51,7 @@
                             NEW COLLECTION
                         </div>
                         <button
-                            class="px-8 p-2.5 text-[10px] sm:text-base w- sm:w-40 mt-10 shadow-lg cursor-pointer rounded-lg bg-[#000000] text-white">
+                            class="px-8 p-2.5 text-[10px] sm:text-base w- sm:w-40 mt-10 shadow-lg cursor-pointer rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">
                             SHOP NOW
                         </button>
                         <img src="../assets/home/section-1/centar-bottom.png"
@@ -97,7 +97,7 @@
                         Scelerisque duis ultrices sollicitudin </div>
 
                     <div
-                        class="button w-45 flex items-center justify-center cursor-pointer p-3 mt-8 shadow-lg rounded-lg bg-[#000000] text-white">
+                        class="button w-45 flex items-center justify-center cursor-pointer p-3 mt-8 shadow-lg rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">
                         <button>Buy Now</button>
                     </div>
 
@@ -340,7 +340,7 @@
 
                             <div class="button flex justify-center mb-2 mt-5">
                                 <button
-                                    class="px-13 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white">Buy
+                                    class="px-13 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">Buy
                                     Now</button>
                             </div>
                         </div>
@@ -466,7 +466,7 @@
 
                     <div class="button mt-11 flex justify-center">
                         <button
-                            class="px-10 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white">Subscribe
+                            class="px-10 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">Subscribe
                             Now</button>
                     </div>
                 </div>
@@ -480,7 +480,7 @@
 
             <!-- footer start  -->
 
-            <div class="footer">
+            <div class="footer" :style="{backgroundColor: theme.selected.footer}">
                 <div class="seprator border border-[#DEDFE1] mb-7"></div>
                 <div class="content flex lg:mx-60 md:mx-3 justify-between">
                     <div class="left">
@@ -516,4 +516,18 @@
 
 <script setup>
   import { Icon } from '@iconify/vue'
+  import { useThemeStore } from '#imports';
+  import { useLoading } from '#imports';
+  import { useThemeLoader } from '#imports';
+
+  await useThemeLoader()
+
+  const theme = useThemeStore()
+  const isLoading = useLoading()
+
+  watch(() => theme.selected, (val) => {
+    console.log('theme updated' , val)
+  } , {deep: true})
+
+
 </script>

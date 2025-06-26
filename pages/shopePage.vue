@@ -4,7 +4,7 @@
             <!-- 1st section start -->
             <div class="section-1 lg:px-59 px-2  md:px-10 mt-12">
                 <!-- navbar -->
-                <div class="navbar flex justify-between ">
+                <div class="navbar flex justify-between rounded-lg " :style="{backgroundColor: theme.selected.header}">
 
                     <div class="fasco font-[Volkhov] text-4xl leading-[100%] tracking-[0%] text-[#484848]">FASCO</div>
                     <div
@@ -278,7 +278,7 @@
 
                             <div class="button flex justify-center mb-2 mt-5">
                                 <button
-                                    class="px-13 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white">Buy
+                                    class="px-13 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">Buy
                                     Now</button>
                             </div>
                         </div>
@@ -398,7 +398,7 @@
 
                     <div class="button mt-11 flex justify-center">
                         <button
-                            class="px-10 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white">Subscribe
+                            class="px-10 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">Subscribe
                             Now</button>
                     </div>
                 </div>
@@ -412,7 +412,7 @@
 
             <!-- footer start  -->
 
-            <div class="footer">
+            <div class="footer" :style="{backgroundColor: theme.selected.footer}">
                 <div class="seprator border border-[#DEDFE1] mb-7"></div>
                 <div class="content flex lg:mx-60 md:mx-3 justify-between">
                     <div class="left">
@@ -452,6 +452,9 @@
 <script setup>
 import { Icon } from '@iconify/vue'
 import { priceRanges } from '../utility/data'
+import { useThemeLoader } from '#imports'
+import { useThemeStore } from '#imports'
+import { useLoading } from '#imports'
 
 
 const { selectedColor,  selectedSize, searchQuery, selectedTag, filteredProducts, selectedCollection, selectedPrice, selectedBrand, allProducts } = useFilters()
@@ -508,6 +511,15 @@ const showAllTag = () => {
 const showAllSize = () => {
     selectedSize.value = null
 }
+
+await useThemeLoader()
+
+const theme = useThemeStore()
+const isLoading = useLoading()
+
+watch(() => theme.selected, (val) => {
+    console.log('theme updated' , val)
+} , {deep:true})
 
 
 </script>

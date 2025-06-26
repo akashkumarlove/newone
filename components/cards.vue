@@ -16,7 +16,7 @@
             <button
                 class="px-8 p-3 rounded-lg cursor-pointer bg-[#fafafa] text-[#8A8A8A] font-poppins text-sm leading-[100%]">Men’s
                 Fashion</button>
-            <button class="px-8 p-3 rounded-lg cursor-pointer bg-black text-white font-poppins text-sm">Women’s
+            <button class="px-8 p-3 rounded-lg cursor-pointer bg-black text-white font-poppins text-sm" :style="{backgroundColor: theme.selected.button}">Women’s
                 Fashion</button>
             <button class="px-8 p-3 rounded-lg cursor-pointer bg-[#fafafa] text-[#8A8A8A] font-poppins text-sm">Women
                 Accessories</button>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="button flex justify-center">
-            <button class="px-13 p-3 mt-9 shadow-lg cursor-pointer text-sm rounded-lg bg-[#000000] text-white">View
+            <button class="px-13 p-3 mt-9 shadow-lg cursor-pointer text-sm rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">View
                 More</button>
         </div>
 
@@ -75,6 +75,9 @@
 <script setup>
 
 import { Icon } from '@iconify/vue'
+import { useThemeLoader } from '#imports'
+import { useLoading } from '#imports'
+import { useThemeStore } from '#imports'
 
 const { data, pending, error } = await useLazyFetch("https://dummyjson.com/carts?limit=2")
 console.log("data hai", data)
@@ -97,5 +100,14 @@ function truncate(des, num) {
         return des
     }
 }
+
+await useThemeLoader()
+
+const theme = useThemeStore()
+const isLoading = useLoading()
+
+watch(() => theme.selected, (val) => {
+    console.log('theme updated' , val)
+} , {deep: true})
 
 </script>
