@@ -6,33 +6,55 @@
             <!-- 1st section start -->
             <div class="section-1 lg:px-59 px-2 flex-row md:justify-center md:items-center md:px-10">
                 <!-- nav--bar -->
-                <div class="nav-bar flex items-center justify-between rounded-lg" :style="{backgroundColor: theme.selected.header}">
+                <div class="nav-bar flex items-center justify-between rounded-lg"
+                    :style="{ backgroundColor: theme.selected.header }">
                     <div class="left-part">
                         <div class="heading text-3xl md:text-4xl leading-[100%] tracking-[0%] font-['Volkhov']">FASCO
                         </div>
                     </div>
 
                     <div
-                        class="hidden right-part text-sm md:flex space-x-10 font-normal md:text-base leading-[100%] tracking-[0%] font-[Poppins]">
+                        class="hidden right-part text-sm md:flex items-center space-x-7  lg:space-x-15 font-normal md:text-base leading-[100%] tracking-[0%] font-[Poppins]">
                         <button class="cursor-pointer">Home</button>
                         <button class="cursor-pointer">Deals</button>
                         <button class="cursor-pointer">New Arrivals</button>
                         <button class="cursor-pointer">Packages</button>
                         <button class="cursor-pointer">Sign In</button>
-                        <button
-                            class="px-8 cursor-pointer p-4 mt-5 shadow-lg left-[855px] rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">Sign
+                        <button class="px-8 cursor-pointer p-4 shadow-lg rounded-lg m-2 bg-[#000000] text-white"
+                            :style="{ backgroundColor: theme.selected.button }">Sign
                             Up</button>
                     </div>
 
+                    <!-- Mobile menu button -->
+                    <button @click="toggleMenu" class=" sm:hidden  text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
+                        <!-- {{ isMenuOpen ? 'Close ' : 'Open Menu' }} -->
+                        <Icon :icon="isMenuOpen ? 'mdi:close' : 'mdi:menu'" class="text-3xl text-gray-800" />
+                    </button>
+
                 </div>
+
+                <!-- Mobile menu -->
+                <div v-if="isMenuOpen" :style="{ backgroundColor: theme.selected.header }"
+                    class=" rounded-lg sm:hidden text-sm items-center text-start flex flex-col space-y-3 font-normal md:text-base leading-[100%] tracking-[0%] font-[Poppins]">
+                    <button class="cursor-pointer">Home</button>
+                    <button class="cursor-pointer">Deals</button>
+                    <button class="cursor-pointer">New Arrivals</button>
+                    <button class="cursor-pointer">Packages</button>
+                    <button class="cursor-pointer">Sign In</button>
+                    <button class="px-8 cursor-pointer p-4 shadow-lg rounded-lg bg-[#000000] mb-1 text-white"
+                        :style="{ backgroundColor: theme.selected.button }">Sign
+                        Up</button>
+                </div>
+
 
                 <!-- hero-section -->
                 <div class="hero-section flex space-x-8 mt-15">
                     <!-- Left Section -->
-                     
+
                     <div class="left w-full overflow-hidden md:w-1/3 rounded-lg bg-[#E0E0E0] relative">
                         <div class="absolute bottom-0 lg:h-[422px]">
-                            <img src="../assets/home/section-1/left.png" class=" " /></div>     
+                            <img src="../assets/home/section-1/left.png" class=" " />
+                        </div>
                     </div>
 
                     <!-- Center Section -->
@@ -51,7 +73,8 @@
                             NEW COLLECTION
                         </div>
                         <button
-                            class="px-8 p-2.5 text-[10px] sm:text-base w- sm:w-40 mt-10 shadow-lg cursor-pointer rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">
+                            class="px-8 p-2.5 text-[10px] sm:text-base w- sm:w-40 mt-10 shadow-lg cursor-pointer rounded-lg bg-[#000000] text-white"
+                            :style="{ backgroundColor: theme.selected.button }">
                             SHOP NOW
                         </button>
                         <img src="../assets/home/section-1/centar-bottom.png"
@@ -59,9 +82,11 @@
                     </div>
 
                     <!-- Right Section -->
-                    <div class="right md:w-1/3 w-full lg:py-75 md:py-60 py-20 rounded-lg bg-[#E0E0E0] relative flex justify-center">
+                    <div
+                        class="right md:w-1/3 w-full lg:py-75 md:py-60 py-20 rounded-lg bg-[#E0E0E0] relative flex justify-center">
                         <div class=" absolute bottom-0 w-[62px] sm:h-[296px] sm:w-[130px] lg:w-[185px] lg:h-[422px]">
-                            <img src="../assets/home/section-1/right.png" class="" /></div>
+                            <img src="../assets/home/section-1/right.png" class="" />
+                        </div>
                     </div>
                 </div>
 
@@ -96,8 +121,8 @@
                         amet, consectetur adipiscing elit. Scelerisque duis ultrices sollicitudin aliquam sem.
                         Scelerisque duis ultrices sollicitudin </div>
 
-                    <div
-                        class="button w-45 flex items-center justify-center cursor-pointer p-3 mt-8 shadow-lg rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">
+                    <div class="button w-45 flex items-center justify-center cursor-pointer p-3 mt-8 shadow-lg rounded-lg bg-[#000000] text-white"
+                        :style="{ backgroundColor: theme.selected.button }">
                         <button>Buy Now</button>
                     </div>
 
@@ -340,7 +365,8 @@
 
                             <div class="button flex justify-center mb-2 mt-5">
                                 <button
-                                    class="px-13 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">Buy
+                                    class="px-13 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white"
+                                    :style="{ backgroundColor: theme.selected.button }">Buy
                                     Now</button>
                             </div>
                         </div>
@@ -466,7 +492,8 @@
 
                     <div class="button mt-11 flex justify-center">
                         <button
-                            class="px-10 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white" :style="{backgroundColor: theme.selected.button}">Subscribe
+                            class="px-10 p-3 cursor-pointer shadow-lg text-sm font-[poppins] rounded-lg bg-[#000000] text-white"
+                            :style="{ backgroundColor: theme.selected.button }">Subscribe
                             Now</button>
                     </div>
                 </div>
@@ -480,7 +507,7 @@
 
             <!-- footer start  -->
 
-            <div class="footer" :style="{backgroundColor: theme.selected.footer}">
+            <div class="footer" :style="{ backgroundColor: theme.selected.footer }">
                 <div class="seprator border border-[#DEDFE1] mb-7"></div>
                 <div class="content flex lg:mx-60 md:mx-3 justify-between">
                     <div class="left">
@@ -515,19 +542,27 @@
 </template>
 
 <script setup>
-  import { Icon } from '@iconify/vue'
-  import { useThemeStore } from '#imports';
-  import { useLoading } from '#imports';
-  import { useThemeLoader } from '#imports';
+import { Icon } from '@iconify/vue'
+import { useThemeStore } from '#imports';
+import { useLoading } from '#imports';
+import { useThemeLoader } from '#imports';
 
-  await useThemeLoader()
 
-  const theme = useThemeStore()
-  const isLoading = useLoading()
+const isMenuOpen = ref(false)
 
-  watch(() => theme.selected, (val) => {
-    console.log('theme updated' , val)
-  } , {deep: true})
+function toggleMenu() {
+    isMenuOpen.value = !isMenuOpen.value
+
+}
+
+await useThemeLoader()
+
+const theme = useThemeStore()
+const isLoading = useLoading()
+
+watch(() => theme.selected, (val) => {
+    console.log('theme updated', val)
+}, { deep: true })
 
 
 </script>
