@@ -2,7 +2,7 @@
     <div class="wrapper h-screen w-screen sm:overflow-hidden">
         <div class="main relative">
             <!-- bhehind wrapper -->
-            <div class="section-1 hidden sm:block lg:px-59 px-2 w-full h-screen md:px-10 mt-12 blur-sm">
+            <div class="section-1 hidden sm:block lg:px-[16%] px-2 w-full h-screen md:px-10 mt-12 blur-sm">
                 <!-- navbar -->
                 <div class="navbar flex justify-between rounded-lg " :style="{backgroundColor: theme.selected.header}">
 

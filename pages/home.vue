@@ -4,7 +4,7 @@
     <div class="wrapper w-screen h-screen box-border bg-white">
         <div class="main">
             <!-- 1st section start -->
-            <div class="section-1 lg:px-59 px-2 flex-row md:justify-center md:items-center md:px-10">
+            <div class="section-1 lg:px-[16%] px-2 flex-row md:justify-center md:items-center md:px-10">
                 <!-- nav--bar -->
                 <div class="nav-bar flex items-center justify-between rounded-lg"
                     :style="{ backgroundColor: theme.selected.header }">

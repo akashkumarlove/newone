@@ -2,7 +2,7 @@
     <div class="wrapper h-screen w-screen">
         <div class="main">
             <!-- Section-1 -->
-            <div class="section-1 relative lg:px-59 px-2 w-full h-screen md:px-10 mt-12 ">
+            <div class="section-1 relative lg:px-[16%] px-2 w-full h-screen md:px-10 mt-12 ">
                 <!-- navbar -->
                 <div class="navbar flex sm:justify-between justify-center flex-wrap rounded-lg" :style="{backgroundColor: theme.selected.header}">
 
@@ -157,7 +157,7 @@
 
             <!-- 7th section start -->
 
-            <div class="section-7 mt-65  sm:-mt-40 lg:mt-10 flex lg:px-59 sm:px-10 items-center mb-9">
+            <div class="section-7 mt-65  md:-mt-[10%] lg:mt-10 flex lg:px-59 sm:px-10 items-center mb-9">
                 <div class="left w-135">
                     <img src="../assets/home/section-7/image-left.png" class="w-full" />
                 </div>

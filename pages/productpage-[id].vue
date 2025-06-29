@@ -2,7 +2,7 @@
     <div class="wrapper w-screen h-screen bg-white">
         <div class="main"></div>
         <!-- 1st section start -->
-        <div class="section-1 lg:px-59 px-2  md:px-10 mt-12">
+        <div class="section-1 lg:px-[16%] px-2  md:px-10 mt-12">
             <!-- navbar -->
             <div class="navbar flex justify-between rounded-lg" :style="{backgroundColor: theme.selected.header}">
 

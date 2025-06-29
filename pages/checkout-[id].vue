@@ -2,7 +2,7 @@
     <div class="wrapper wrapper h-screen w-screen">
         <div class="main">
             <!-- section 1 start -->
-            <div class="section-1 relative lg:px-59 px-2 w-full h-screen md:px-10 mt-12">
+            <div class="section-1 relative lg:px-[16%] px-2 w-full h-screen md:px-10 mt-12">
                 <!-- navbar -->
                 <div class="navbar flex flex-wrap justify-between rounded-lg" :style="{backgroundColor: theme.selected.header}" >
 
