@@ -243,7 +243,7 @@
                             class="heading font-[Volkhov] font-normal text-4xl leading-[32px] tracking-[0] text-center align-middle capitalize text-black">
                             Shopping Cart</di>
                         <button class="text-gray-600 hover:text-black">
-                            <Icon icon="mdi:close" class="w-6 h-6" />
+                            <Icon @click="goBack" icon="mdi:close" class="w-6 h-6 cursor-pointer" />
                         </button>
                     </div>
 
@@ -332,7 +332,12 @@ import { allProducts } from '~/utility/data';
 import { useThemeStore } from '#imports';
 import { useThemeLoader } from '#imports';
 import { useLoading } from '#imports';
+const router = useRouter()
 
+
+function goBack() {
+  router.back() // goes to the previous page in history
+}
 
 const counter = useCartStore()
 const {filteredProducts} = useFilters()

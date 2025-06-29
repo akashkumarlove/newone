@@ -111,7 +111,7 @@
 
                     </div>
 
-                    <div class="right w-[75%]">
+                    <div class="right w-[75%] pl-3">
                         <div class="flex">
                             <div class="heading font-[volkhov] font-normal text-base leading-6 align-middle text-black">
                                 Best selling</div>
@@ -125,7 +125,7 @@
                             </div>
                         </div>
 
-                        <div class="cards flex flex-wrap gap-3.5 gap-y-10 mt-5">
+                        <div v-if="filteredProducts.length" class="cards flex flex-wrap justify-between gap-y-10 mt-5">
 
                             <div v-for="product in filteredProducts" class="card">
                                 <nuxt-link :to="`/productpage-${ product.id}`"><div class="img w-58">
@@ -144,8 +144,9 @@
                                 </div>
                             </div>
 
-
                         </div>
+
+                        <p v-else class="text-2xl mt-5 flex justify-center text-gray-500"> Items Not Found</p>
 
                         <div class="buttons flex items-center justify-center mt-15 gap-3">
                             <button class="bg-[#F3F3F3] text-sm w-8 h-8 rounded-full">1</button>
